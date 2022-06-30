@@ -7,18 +7,18 @@ const commentsList = bigPicture.querySelector('.social__comments');
 const commentTemplate = document.querySelector('#social-comment').content.querySelector('.social__comment');
 
 
-const onBigPuctureEscpaeKey = (evt) => {
-  if (isEscapeKey(evt)) {
-    userBigPictureCloseElement(evt);
-  }
-};
-
 const userBigPictureCloseElement = (evt) => {
   evt.preventDefault();
   bigPicture.classList.add('hidden');
   scrollBackground.classList.remove('modal-open');
   document.removeEventListener('keydown', onBigPuctureEscpaeKey);
 };
+
+function onBigPuctureEscpaeKey(evt) {
+  if (isEscapeKey(evt)) {
+    userBigPictureCloseElement(evt);
+  }
+}
 
 const renderComment = ({avatar, name, message}) => {
   const commentBlock = commentTemplate.cloneNode(true);
